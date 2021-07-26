@@ -1,7 +1,14 @@
 <?php 
  session_start();
+
+include './includes/cnx.php';
 $date = date('d/M/Y');
 $heure = date('H:i:s');
+ $error = "";
+  $error1 = "";
+  $color = "";
+  $hidden = "";
+
  ?>
 
 <!DOCTYPE html>
@@ -79,6 +86,7 @@ $heure = date('H:i:s');
                                </div>
 
                                <div class="col-md-12" style="width: 120%;margin-left: 120px; margin-top: -211px">
+
                                    <?php 
 
                                     switch (@$_GET['page']) {
@@ -87,12 +95,15 @@ $heure = date('H:i:s');
                                         break;
                                       case 'list':
                                         include 'includes/liste.php';
+                                            $hidden = "hidden";
                                         break;
                                       case 'points':
                                         include 'includes/points.php';
+                                            $hidden = "hidden";
                                         break;
                                       case 'recettes':
                                         include 'includes/recettes.php';
+                                            $hidden = "hidden";
                                         break;
                                       
                                       default:
@@ -101,6 +112,14 @@ $heure = date('H:i:s');
                                     }
 
                                     ?>
+                                    <!-- Information -->
+                                           <div class="alert alert-<?=$color?> alert-dismissible border-0 fade show" role="alert" <?=$hidden?>>
+                                <a href=""><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button></a>
+                                <strong> <?= $error; ?></strong><?= $error1; ?>
+                            </div>
+                                     <!-- Fin information -->
                            </div>
                         </div>
                     </div>
