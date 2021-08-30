@@ -8,6 +8,7 @@
   $error = "";
   $error1 = "";
   $color = "";
+       
 
      if (isset($_POST['save'])) {
          $ref = filter_input(INPUT_POST, 'ref', FILTER_SANITIZE_STRING);
@@ -30,6 +31,7 @@
          $O= empty($selectop);
          $Rs = empty($reso);
 
+
          $req = 'INSERT INTO transaction SET ref_tra=?, num_tra=?, mont_tra=?, op_tra=?, reso_tra=?, dat_tra=?, heu_tra=?, id_user=?';
            $query = $cnx->prepare($req);
            $Nadege = array($ref,$num,$mont,$selectop,$reso,$D,$I,$idUser);
@@ -37,6 +39,11 @@
             $error = 'Oupss!!! ';
              $error1 = 'Veuillez remplir tous les champs';
              $color = 'danger';
+            }elseif(strlen($num)!=10){
+              $error = 'Oupss!!! ';
+             $error1 = 'Le numéro de la transaction doit etre composé de 10 chiffre.';
+             $color = 'danger';
+             var_dump(strlen($num));
            }elseif ($query->execute($Nadege) or die(print_r($query->errorInfo()))) {
             $error = 'Bravo!!! ';
             $error1 = 'Enregistrement de la transaction effectué avec succes';
@@ -75,7 +82,7 @@
                                         <h4 class="header-title">Enregistrer la transaction</h4>
                                     </div>
                                   </div>
-
+                                             
                                </div>
                                         <div class="row">
                                           <div class="col-md-2"></div><!-- end col -->

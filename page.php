@@ -78,10 +78,10 @@ $heure = date('H:i:s');
                                    <div class="list-group">
   <a href="#" class="list-group-item disabled" style="background-color: orange; text-transform: uppercase;font-family: cursive; color: white; text-align: center;">menu
   </a>
-  <a href="page.php?page=transaction" class="list-group-item" style=" text-transform: uppercase;font-family: cursive; color: orange; ;"> <b>tansactions</b></a>
-  <a href="page.php?page=list" class="list-group-item" style=" text-transform: uppercase;font-family: cursive; color: orange; ;"><b>liste des transactions</b></a>
-  <a href="page.php?page=points" class="list-group-item" style=" text-transform: uppercase;font-family: cursive; color: orange; ;"><b>les points</b></a>
-  <a href="page.php?page=recettes" class="list-group-item" style=" text-transform: uppercase;font-family: cursive; color: orange; ;"><b>listes des recettes</b></a>
+  <a href="page.php?pageT=transaction" class="list-group-item" style=" text-transform: uppercase;font-family: cursive; color: orange; ;"> <b>tansactions</b></a>
+  <a href="page.php?pageT=list" class="list-group-item" style=" text-transform: uppercase;font-family: cursive; color: orange; ;"><b>liste des transactions</b></a>
+  <a href="page.php?pageT=points" class="list-group-item" style=" text-transform: uppercase;font-family: cursive; color: orange; ;"><b>les points</b></a>
+  <a href="page.php?pageT=recettes" class="list-group-item" style=" text-transform: uppercase;font-family: cursive; color: orange; ;"><b>listes des recettes</b></a>
 </div>
                                </div>
 
@@ -89,7 +89,7 @@ $heure = date('H:i:s');
 
                                    <?php 
 
-                                    switch (@$_GET['page']) {
+                                    switch (@$_GET['pageT']) {
                                       case 'transaction':
                                         include 'includes/transaction.php';
                                         break;
